@@ -149,11 +149,11 @@ self.m_answerDat=['giyeok','ssang giyeok','nieun','digeut','ssang digeut','rieul
                  'a','ae','ya','yae','eo','e','yeo','ye','o','wa','wae','oe','yo','u','wo','we','wi','yu','eu','ui','i']; 
  self.m_bi;
  self.m_boxXS=90;
- self.m_boxYS=40;
+ self.m_boxYS=70;
  self.m_bxNum=5;
  self.m_byNum=10;
  self.m_bxStart=50;
- self.m_byStart=0;
+ self.m_byStart=500-self.m_boxYS*self.m_byNum;
  self.m_statusCode=99;
  
 self.m_animateBoxesSwapSpeed025=0.145;
@@ -237,11 +237,30 @@ function makeData2()
 	    self.m_bid[ny2][nx2]=temp;
 		
 	}
+	function getterritorySX(y,x){
+	    return 0;
+	}
+	function getterritoryEX(y,x){
+	    return self.m_bxNum;
+	}
+	function getterritorySY(y,x){
+	    return 0;
+	}
+	function getterritoryEY(y,x){
+	    return self.m_byNum;
+	}
 	for(var i=0;i<102;i++){
+	    var s,e;
+	
 	    nx=Math.floor(Math.random()*self.m_bxNum);
 	    ny=Math.floor(Math.random()*self.m_byNum);
-	    nx2=Math.floor(Math.random()*self.m_bxNum);
-	    ny2=Math.floor(Math.random()*self.m_byNum);
+	    //nx2=Math.floor(Math.random()*self.m_bxNum);
+	    //ny2=Math.floor(Math.random()*self.m_byNum);
+	    s=getterritorySX(ny,nx);e=getterritoryEX(ny,nx);
+	    nx2=Math.floor(Math.random()*(e-s))+s;
+	    
+	    s=getterritorySY(ny,nx);e=getterritoryEY(ny,nx);
+	    ny2=Math.floor(Math.random()*(e-s))+s;
 	    swapbibid(ny,nx,ny2,nx2);
 	}
 	
@@ -256,8 +275,11 @@ function makeData2()
 	}
 	function sswap(ai,aj){
 		var an=self.m_bi[ai][aj];
-	    for(var i=0;i<self.m_byNum;i++)
-		for(var j=0;j<self.m_bxNum;j++){
+	    //for(var i=0;i<self.m_byNum;i++)
+		//for(var j=0;j<self.m_bxNum;j++){
+		
+	    for(var i=getterritorySY(ai,aj);i<getterritoryEY(ai,aj);i++)
+		for(var j=getterritorySX(ai,aj);j<getterritoryEX(ai,aj);j++){
 			n=self.m_bi[i][j];
 			
 			swapbibid(i,j,ai,aj);
