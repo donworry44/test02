@@ -202,21 +202,22 @@ function makeData2()
 		self.m_bid[i]=new Array(self.m_bxNum);
 	}
 	var n,chk=0,cnt=0;
+	var mod=self.m_quizDat.lengt;
 	for(var i=0;i<self.m_byNum;i++)
 	for(var j=0;j<self.m_bxNum;j++){
-		self.m_bi[i][j]=Math.floor(cnt/2)%self.m_quizDat.length;
+		self.m_bi[i][j]=Math.floor(cnt/2)%mod;
 		self.m_bid[i][j]=function (){};
 		self.m_bid[i][j].prototype.clickChk=0;
 		self.m_bid[i][j].clickChk=0;
 		self.m_bid[i][j].prototype.expsn='';
 		if(cnt%2==0){
-		    self.m_bid[i][j].expsn=self.m_quizDat[Math.floor(cnt/2)%10%self.m_quizDat.length];
+		    self.m_bid[i][j].expsn=self.m_quizDat[Math.floor(cnt/2)%mod%self.m_quizDat.length];
 		    self.m_bid[i][j].isQuestion=11;
 		
 		    
 		}
 		else{
-		    self.m_bid[i][j].expsn=self.m_answerDat[Math.floor(cnt/2)%10%self.m_answerDat.length];
+		    self.m_bid[i][j].expsn=self.m_answerDat[Math.floor(cnt/2)%mod%self.m_answerDat.length];
 		    self.m_bid[i][j].isQuestion=22;
 		
 		    
