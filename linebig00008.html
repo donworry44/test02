@@ -487,7 +487,7 @@ function makeData2()
  }
  self.chkDelete=function (){
 
-	function cchk(n,i,j){
+	function cchk(n,i,j,pp){
 	    
 	    var chk=0;
 		if(i>0)if(self.m_bid[i-1][j].clickChk!=99 && self.m_bi[i-1][j]==n){chk=1;self.m_bid[i-1][j].clickChk=99;return [1,i-1,j];}
@@ -497,12 +497,13 @@ function makeData2()
 		return chk;
 	}
 	var chk=0;
+	var n=0,pp=0;
 	for(var i=0;i<self.m_byNum;i++)
 	for(var j=0;j<self.m_bxNum;j++){
 		n=self.m_bi[i][j];
 		//self.m_bid[i][j].expsn=n+'_'+(cchk(n,i,j)==0?'#':'.');
 	    if(self.m_bid[i][j].clickChk!=99){
-			var nnCchk=cchk(n,i,j);
+			var nnCchk=cchk(n,i,j,pp);
 			if(nnCchk[0]>0){
 				self.m_bid[i][j].clickChk=99;
 				chk=1;
