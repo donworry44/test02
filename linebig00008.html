@@ -244,10 +244,15 @@ function makeData2()
 	    return self.m_bxNum;
 	}
 	function getterritorySY(y,x){
-	    return 0;
+	    return Math.floor(y/2)*2;
+	    //return 0;
 	}
 	function getterritoryEY(y,x){
-	    return self.m_byNum;
+	    var n=Math.floor(y/2)*2+2;
+	    if(n>=self.m_byNum)n=self.m_byNum;
+	    return n;
+
+	    //return self.m_byNum;
 	}
 	for(var i=0;i<102;i++){
 	    var s,e;
