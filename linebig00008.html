@@ -149,11 +149,11 @@ self.m_answerDat=['giyeok','ssang giyeok','nieun','digeut','ssang digeut','rieul
                  'a','ae','ya','yae','eo','e','yeo','ye','o','wa','wae','oe','yo','u','wo','we','wi','yu','eu','ui','i']; 
  self.m_bi;
  self.m_boxXS=90;
- self.m_boxYS=70;
- self.m_bxNum=4;
- self.m_byNum=15;
- self.m_bxStart=100;
- self.m_byStart=-550;
+ self.m_boxYS=40;
+ self.m_bxNum=5;
+ self.m_byNum=10;
+ self.m_bxStart=50;
+ self.m_byStart=0;
  self.m_statusCode=99;
  
 self.m_animateBoxesSwapSpeed025=0.145;
@@ -498,9 +498,9 @@ function makeData2()
 	    
 	    var chk=0;
 		if(i>0             )if(self.m_bid[i-1][j].isQuestion!=pp && self.m_bid[i-1][j].clickChk!=99 && self.m_bi[i-1][j]==n){chk=1;self.m_bid[i-1][j].clickChk=99;return [1,i-1,j];}
-		if(i<self.m_byNum-1)if(self.m_bid[i+1][j].isQuestion!=pp && self.m_bi[i+1][j]==n){chk=2;self.m_bid[i+1][j].clickChk=99;return [2,i+1,j];}
-		if(j>0             )if(self.m_bid[i][j-1].isQuestion!=pp && self.m_bi[i][j-1]==n){chk=3;self.m_bid[i][j-1].clickChk=99;return [3,i,j-1];}
-		if(j<self.m_bxNum-1)if(self.m_bid[i][j+1].isQuestion!=pp && self.m_bi[i][j+1]==n){chk=4;self.m_bid[i][j+1].clickChk=99;return [4,i,j+1];}
+		if(i<self.m_byNum-1)if(self.m_bid[i+1][j].isQuestion!=pp && self.m_bid[i-1][j].clickChk!=99 && self.m_bi[i+1][j]==n){chk=2;self.m_bid[i+1][j].clickChk=99;return [2,i+1,j];}
+		if(j>0             )if(self.m_bid[i][j-1].isQuestion!=pp && self.m_bid[i-1][j].clickChk!=99 && self.m_bi[i][j-1]==n){chk=3;self.m_bid[i][j-1].clickChk=99;return [3,i,j-1];}
+		if(j<self.m_bxNum-1)if(self.m_bid[i][j+1].isQuestion!=pp && self.m_bid[i-1][j].clickChk!=99 && self.m_bi[i][j+1]==n){chk=4;self.m_bid[i][j+1].clickChk=99;return [4,i,j+1];}
 		return chk;
 	}
 	var chk=0;
