@@ -767,6 +767,7 @@ linebig.prototype.chkMouseDown=function (mp)
 	var kk=this.chkBoxesXY(mp.x,mp.y);
 	console.log('chkBoxesXY='+kk+' '+kk.iy+' '+kk.jx);
 	if(kk!=9999){
+	    if(this.m_bid[kk.iy][kk.jx].clickChk!=0)return;
 		if(this.m_chkBox.cnt>0){
 			this.m_statusCode=101;
 			this.m_bid[kk.iy][kk.jx].clickChk=0;
