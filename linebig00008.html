@@ -493,14 +493,14 @@ function makeData2()
 	m_linebig.ddrrww3(m_linebig);
  }
  self.chkDelete=function (){
-
+    console.log('chkDel');
 	function cchk(n,i,j,pp){
 	    
-	    var chk=0;
-		if(i>0             )if(self.m_bid[i-1][j].isQuestion!=pp && self.m_bid[i-1][j].clickChk!=99 && self.m_bi[i-1][j]==n){chk=1;self.m_bid[i-1][j].clickChk=99;return [1,i-1,j];}
-		if(i<self.m_byNum-1)if(self.m_bid[i+1][j].isQuestion!=pp && self.m_bid[i+1][j].clickChk!=99 && self.m_bi[i+1][j]==n){chk=2;self.m_bid[i+1][j].clickChk=99;return [2,i+1,j];}
-		if(j>0             )if(self.m_bid[i][j-1].isQuestion!=pp && self.m_bid[i][j-1].clickChk!=99 && self.m_bi[i][j-1]==n){chk=3;self.m_bid[i][j-1].clickChk=99;return [3,i,j-1];}
-		if(j<self.m_bxNum-1)if(self.m_bid[i][j+1].isQuestion!=pp && self.m_bid[i][j+1].clickChk!=99 && self.m_bi[i][j+1]==n){chk=4;self.m_bid[i][j+1].clickChk=99;return [4,i,j+1];}
+	    var chk=[0];
+		if(i>0             )if(self.m_bid[i-1][j].isQuestion!=pp && self.m_bid[i-1][j].clickChk!=991 && self.m_bi[i-1][j]==n){chk=1;self.m_bid[i-1][j].clickChk=99;return [1,i-1,j];}
+		if(i<self.m_byNum-1)if(self.m_bid[i+1][j].isQuestion!=pp && self.m_bid[i+1][j].clickChk!=991 && self.m_bi[i+1][j]==n){chk=2;self.m_bid[i+1][j].clickChk=99;return [2,i+1,j];}
+		if(j>0             )if(self.m_bid[i][j-1].isQuestion!=pp && self.m_bid[i][j-1].clickChk!=991 && self.m_bi[i][j-1]==n){chk=3;self.m_bid[i][j-1].clickChk=99;return [3,i,j-1];}
+		if(j<self.m_bxNum-1)if(self.m_bid[i][j+1].isQuestion!=pp && self.m_bid[i][j+1].clickChk!=991 && self.m_bi[i][j+1]==n){chk=4;self.m_bid[i][j+1].clickChk=99;return [4,i,j+1];}
 		return chk;
 	}
 	var chk=0;
@@ -511,7 +511,7 @@ function makeData2()
 		pp=self.m_bid[i][j].isQuestion;
 		//self.m_bid[i][j].expsn=n+'_'+(cchk(n,i,j)==0?'#':'.');
 	    if(self.m_bid[i][j].clickChk!=99){
-			var nnCchk=cchk(n,i,j,pp);
+			var nnCchk=cchk(n,i,j,444);
 			if(nnCchk[0]>0){
 				self.m_bid[i][j].clickChk=99;
 				chk=1;
